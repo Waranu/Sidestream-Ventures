@@ -49,16 +49,14 @@ def SetCells():
     
     if state[0] == 1: 
         cursor_pos = pygame.mouse.get_pos()
+        
         x = cursor_pos[0]//BLOCKSIZE
         y = cursor_pos[1]//BLOCKSIZE
-        
-        print(f"LEFT KEY GOT PRESSED on ({x},{y}) BLOCK")
-        try:
+        if x < WIDTH//BLOCKSIZE and y < HEIGHT//BLOCKSIZE:        
+            print(f"LEFT KEY GOT PRESSED on ({x},{y}) BLOCK")
             if BOARD[x][y] == 0:
                 BOARD[x][y] = 1
-        except IndexError:
-            print(f"Index out of range at ({x},{y})") 
-                 
+             
     
 
 def DrawCells():
