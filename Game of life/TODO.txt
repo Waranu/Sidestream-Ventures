@@ -1,0 +1,16 @@
+TODO:
+1. Create a basic game of life prototype in console
+
+
+
+- APPROACH #1 (The Compute Intensive One) - Using list coor(s), transversing through 
+matrix again and again. For each 
+
+
+
+
+- APPROACH #2 - Using smth clever idk --_(ツ)_--
+
+
+2. Implement UI --_(ツ)_--
+
