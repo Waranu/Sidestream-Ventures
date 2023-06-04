@@ -37,7 +37,6 @@ def Printboard(board):
 
 
 def CreateNextState(board):
-     numNeighbours = 0
      UP = 0 
      DOWN = 0
      LEFT = 0
@@ -45,8 +44,9 @@ def CreateNextState(board):
      
      for x in range(ROWS):
           for y in range(COLS):
-               #FIXME: What to do when x or y = 0 ? 
-               LEFT = (x - 1) % ROWS
+               numNeighbours = 0
+               #FIXME: What to do when x or y = 0 ? Assuming A < 0 then A % B returns B-A
+               LEFT = (x - 1) % ROWS # LEFT = ROWS - (0 - 1)
                RIGHT = (x + 1) % ROWS
                UP = (y - 1) % COLS
                DOWN = (y + 1) % COLS
@@ -76,15 +76,15 @@ def CreateNextState(board):
                               
                if board[RIGHT][y] == 1:
                     numNeighbours += 1
-                
-               if numNeighbours > 0:
-                    if (numNeighbours == 2 or numNeighbours == 3) and board[x][y] == 1:
-                         board[x][y] = 1
-                    elif numNeighbours == 3 and board[x][y] == 0:
-                         board[x][y] = 1
-                    else: 
-                         board[x][y] = 0
-                         numNeighbours = 0     
+          
+               if board[x][y] == 1 and (numNeighbours == 2 or numNeighbours == 3):
+                    board[x][y] = 1
+                    
+               elif  board[x][y] == 0 and numNeighbours == 3:
+                    board[x][y] = 1
+               else: 
+                    board[x][y] = 0
+                   
      sleep(1.0)
 
 
