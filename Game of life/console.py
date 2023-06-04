@@ -8,9 +8,16 @@ from time import sleep
 
 
 
-ROWS = 10
-COLS = 10
-BOARD = [[0 for j in range(COLS)] for x in range(ROWS)]
+ROWS = 5
+COLS = 5
+BOARD = [[0, 1, 0, 0, 0],
+         [0, 1, 0, 0, 0],
+         [0, 1, 0, 0, 0],
+         [0, 0, 0, 0, 0],
+         [0, 0, 0, 0, 0]]
+
+
+
 
 
 
@@ -53,19 +60,19 @@ def CreateNextState(board):
                
                # Check for numNeighbours
                
-               if board[x][UP] == 1:
+               if board[x][UP] == 1: # TOP neighbour
                     numNeighbours += 1
                          
-               if board[x][DOWN] == 1:
+               if board[x][DOWN] == 1: # Bottom neighbour
                     numNeighbours += 1
                          
-               if board[LEFT][UP] == 1:
+               if board[LEFT][UP] == 1: # Top Left Neighbour
                     numNeighbours += 1
                          
-               if board[LEFT][DOWN] == 1:
+               if board[LEFT][DOWN] == 1: # Top Right Neighbour
                     numNeighbours += 1
                          
-               if board[RIGHT][UP] == 1:
+               if board[RIGHT][UP] == 1: # 
                     numNeighbours += 1
                               
                if board[RIGHT][DOWN] == 1:
@@ -90,7 +97,7 @@ def CreateNextState(board):
 
 
 def main():
-     FillboardRandomly(BOARD)
+     # FillboardRandomly(BOARD)
      Printboard(BOARD)
      
      run = True
